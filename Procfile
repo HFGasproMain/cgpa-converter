@@ -1,0 +1,1 @@
+web: gunicorn cgp_converter.wsgi --log-file -

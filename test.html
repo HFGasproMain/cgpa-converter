@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Table</title>
+</head>
+<body>
+  <input type="number" id="num-courses-input" placeholder="Enter number of courses">
+  <button id="generate-table-button">Generate Table</button>
+
+  <table id="course-table">
+    <thead>
+      <tr>
+        <th>Course Title</th>
+        <th>Course Unit</th>
+        <th>Score</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows will be dynamically generated here -->
+    </tbody>
+  </table>
+
+  <script>
+    document.getElementById('generate-table-button').addEventListener('click', function() {
+      var numCourses = parseInt(document.getElementById('num-courses-input').value);
+
+      // Clear existing table rows
+      var tableBody = document.querySelector('#course-table tbody');
+      tableBody.innerHTML = '';
+
+      // Generate table rows based on the entered number of courses
+      for (var i = 1; i <= numCourses; i++) {
+        var row = document.createElement('tr');
+        row.innerHTML = `
+          <td><input type="number" class="score-input" id="score-${i}"></td>          
+          <td><input type="number" class="score-input" id="score-${i}"></td>          
+          <td><input type="number" class="score-input" id="score-${i}"></td>
+          <td><input type="text" class="grade-input" id="grade-${i}"></td>
+        `;
+        tableBody.appendChild(row);
+      }
+    });
+  </script>
+</body>
+</html>
